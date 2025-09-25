@@ -74,3 +74,19 @@ Pooling works by sliding a window across the input and feeding the content
 of the window to a pooling function. In some sense, pooling works very much
 like a discrete convolution, but replaces the linear combination described by the
 kernel with some other function.
+
+Let’s now consider what would be required to go the other way around, i.e.,
+map from a 4-dimensional space to a 16-dimensional space, while keeping the
+connectivity pattern of the convolution depicted in Figure 2.1. This operation
+is known as a transposed convolution.
+Transposed convolutions – also called fractionally strided convolutions or
+deconvolutions1 – work by swapping the forward and backward passes of a con-
+volution. 
+
+The need for transposed convolutions generally arises from the desire to use a
+transformation going in the opposite direction of a normal convolution, i.e., from
+something that has the shape of the output of some convolution to something
+that has the shape of its input while maintaining a connectivity pattern that
+is compatible with said convolution. For instance, one might use such a trans-
+formation as the decoding layer of a convolutional autoencoder or to project
+feature maps to a higher-dimensional space
