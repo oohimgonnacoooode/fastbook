@@ -46,6 +46,7 @@ The receptive field is the area of an image that is involved in the calculation 
   So, in order to apply a convolution to a color picture we require a kernel tensor with a size that matches the first axis. At each location, the corresponding parts of the kernel and the image patch are multiplied together.
 
 These are then all added together, to produce a single number, for each grid location, for each output feature, as shown in <>.
+
   [CONV ALGORITM]
   Images, sound clips and many other similar kinds of data have an intrinsic
 structure. More formally, they share these important properties:
@@ -65,3 +66,11 @@ where discrete convolutions come into play.
 Note that strides constitute a form of subsampling. As an alternative to
 being interpreted as a measure of how much the kernel is translated, strides can
 also be viewed as how much of the output is retained. 
+
+Pooling operations reduce the size
+of feature maps by using some function to summarize subregions, such as taking
+the average or the maximum value.
+Pooling works by sliding a window across the input and feeding the content
+of the window to a pooling function. In some sense, pooling works very much
+like a discrete convolution, but replaces the linear combination described by the
+kernel with some other function.
