@@ -46,5 +46,22 @@ The receptive field is the area of an image that is involved in the calculation 
   So, in order to apply a convolution to a color picture we require a kernel tensor with a size that matches the first axis. At each location, the corresponding parts of the kernel and the image patch are multiplied together.
 
 These are then all added together, to produce a single number, for each grid location, for each output feature, as shown in <>.
-  
-  
+  [CONV ALGORITM]
+  Images, sound clips and many other similar kinds of data have an intrinsic
+structure. More formally, they share these important properties:
+• They are stored as multi-dimensional arrays.
+• They feature one or more axes for which ordering matters (e.g., width and
+height axes for an image, time axis for a sound clip).
+• One axis, called the channel axis, is used to access different views of the
+data (e.g., the red, green and blue channels of a color image, or the left
+and right channels of a stereo audio track).
+These properties are not exploited when an affine transformation is applied;
+in fact, all the axes are treated in the same way and the topological information
+is not taken into account. Still, taking advantage of the implicit structure of
+the data may prove very handy in solving some tasks, like computer vision and
+speech recognition, and in these cases it would be best to preserve it. This is
+where discrete convolutions come into play.
+
+Note that strides constitute a form of subsampling. As an alternative to
+being interpreted as a measure of how much the kernel is translated, strides can
+also be viewed as how much of the output is retained. 
